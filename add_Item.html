@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Safety Report</title>
+        <link rel="stylesheet" type="text/css" href="css/ResponsiveDesign.css">
+    </head>
+
+    <body>
+        <div id="header"> <!--main header-->
+            <div id="title-box">
+                <img src ="./Images/VPPStar.jpg" alt="VPPStarImg" class="header-image">
+                <h1>New Safety Report</h1>
+            </div> <!--title box-->
+
+                <ul id="primary-nav">
+                    <li><a href="HomepageLogin.html" class="first-Item">Home</a></li>
+                    <li><a href="AboutUs.html">About</a></li>
+                    <li><a href="#" class="selected">New Safety Report</a></li>
+                    <li><a href="MySafetyReports.html">My Reports</a></li>
+                    <li><a href="List.html">All Reports</a></li>
+                    <li><a href="Homepage_NoLogin.html">Logout</a></li>
+                </ul> <!--primary-nav-->
+
+        </div> <!--header box-->
+
+        <div id ="content">
+            <form id="Report-Form" class="add_comment"> <!--Form to collect data-->
+                <label id="formTitleLab" for="ftitle" class="col25">Title:</label>
+                <input type="text" id="ftitle">
+                <label id="labelsubmitterForm" for="submitterForm" class="col75">Submitter:</label>
+                <input  type="text" id="submitterForm">
+                <label id="labelAnonymous" for="fAnonymous" class="AnonCheck">Anonymous:
+                <input type="checkbox" value="Anonymous Post" id="fAnonymous"></label>
+                <label id="labelDate" for="fdate">Date:</label>
+                <input type="date" value="2021-09-23" id="fdate">
+                <textarea id="report" name="report" placeholder="Type Report..."></textarea>
+                <input type="submit" value="Submit">
+            </form><!--Report Form-->
+        </div> <!--content box-->
+        <div id = "footer">
+            <ul id="footer-nav"> <!--footer nav-->
+                <li><a href="#">Company</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="PrivacyPolicy.html">Privacy</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="Help.html">Help</a></li>
+                <li><footer id="copyright">
+                    <p>NRV District Safety &copy;</p>
+                </footer></li>
+            </ul> <!--footer nav-->
+        </div> <!--footer box-->
+
+
+    </body>
+</html>

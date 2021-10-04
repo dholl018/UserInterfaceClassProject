@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width">
+        <title class="Main-Title">Sign-up</title>
+        <script src="JavaScript/jquery-3.6.0.min.js"></script>
+        <script defer src="JavaScript/scrpts.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/ResponsiveDesign.css"/>
+</head>
+<body>
+        <div id="header"> <!--header container-->
+            <div id="title-box">
+                <img src ="./Images/VPPStar.jpg" alt="VPPStarImg">
+                <h1>Welcome</h1>
+            </div> <!--title box-->
+            <ul id="primary-nav"> <!--Primary container-->
+                <li><a href="HomepageLogin.html" class="nav-link">Home</a></li> <!--function to bypass log in-->
+                <li><a href="AboutUs.html" class="nav-link">About</a></li>
+                <li><a href="PrivacyPolicy.html" class="nav-link">Privacy</a></li>
+            </ul>
+        </div> <!--header container-->
+        <div class="intro-paragraph">
+            <h4>
+                Welcome please fill out this form to enjoy the full features of our site.
+            </h4>
+        </div>
+        <div id ="content">
+
+            <form class="action" id="signup-form" method="get">
+                <div>
+                    <label for="first-name">First Name</label>
+                    <input id="first-name" type="text" class="textbox">
+                </div>
+                <div>
+                    <label for="last-name">Last Name</label>
+                    <input id = "last-name" type="text" class="textbox">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email">
+                </div>
+                <h4>Password Requirements</h4>
+                <div>
+                    <p id="Six-Character" class="warning"> Password MUST be at 6 characters</p>
+                </div>
+                <div>
+                    <p id="matching-Password" class="warning"> Password DO NOT match.</p>
+                </div>
+                <div>
+                    <label for="password-signup">Password:</label>
+                    <input id = "password-signup" type="password" class="password">
+                </div>
+                <div>
+                    <label for="retype-pass">Re-Type Password</label>
+                    <input id ="retype-pass" type="password" class="password">
+                </div>
+                <button class="submit-b">Submit</button>
+            </form>
+        </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width">
+        <title class="Main-Title">NRV Lab Safety Hub</title>
+        <script src="JavaScript/jquery-3.6.0.min.js"></script>
+        <script defer src="JavaScript/scrpts.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/ResponsiveDesign.css"/>
+    </head>
+    <body>
+        <div id="header"> <!--header container-->
+            <div id="title-box">
+                <img src ="./Images/VPPStar.jpg" alt="VPPStarImg">
+                <h1>NRV Lab Safety Hub</h1>
+            </div> <!--title box-->
+            <ul id="primary-nav"> <!--Primary container-->
+                <li><a href="HomepageLogin.html" class="nav-link">Home</a></li> <!--function to bypass log in-->
+                <li><a href="AboutUs.html" class="nav-link">About</a></li>
+                <li><a href="PrivacyPolicy.html" class="nav-link">Privacy</a></li>
+            </ul>
+
+        </div> <!--header container-->
+        <div id="loginBoxHeader"> <!--Login Box container-->
+            <h2 id="loginTitle">Login</h2>
+            <div id="error"></div>
+            <form id="Login-box" action="./HomepageLogin.html" method="get"> <!--Username and sign-out box-->
+                <label for="email-b"></label><input type="email" id="email-b" class="noLog_field" placeholder="Email" required>
+                <label for="password-b"></label><input type="password" id="password-b" class="noLog_field" placeholder="Password">
+                <input type="submit" id="Log-Form-Submit">
+                <a id="forgotPassword" href ="#">Forgot Password</a>
+            </form><!--Username and sign-out box-->
+        </div> <!--Login Box container-->
+    <form id="Signup-box" action="./Signup.html" method="get"> <!--Sign up box-->
+        <h2>Sign Up</h2>
+        <input id="Sign-up-Button" type="submit" Value="Signup">
+    </form><!--Sign up box-->
+    <ul id="footer-nav"> <!--footer navigation-->
+        <li><a href="#">Company</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+        <li><a href="Help.html" class="nav-link">Help</a></li>
+        <li><footer id="copyright">
+            <p>NRV District Safety &copy;</p>
+        </footer></li>
+
+    </ul><!--footer navigation-->
+
+
+    </body>
+</html>
