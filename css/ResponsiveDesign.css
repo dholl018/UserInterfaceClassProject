@@ -141,7 +141,7 @@ ul#footer-nav li{
 }
 
 /* List Sheet*/
- div#Report-content{
+ .Report-content{
 
     margin-top: 100px;
     max-width: 100%;
@@ -495,7 +495,7 @@ input#search-button{
         box-sizing: border-box;
     }
 
-    div#Report-content{
+    .Report-content{
         float: left;
         margin-top: 20px;
         width: 800px;
@@ -504,7 +504,7 @@ input#search-button{
         border-radius: 6px;
         min-width: 200px;
     }
-    div#Report-content div p{
+    .Report-content div p{
         float: Left;
     }
 
@@ -628,7 +628,7 @@ input#search-button{
         display: flex;
         max-width: 800px ;
     }
-    div#Report-content {
+    .Report-content {
         margin-left: 25%;
         margin-right: 25%;
     }
