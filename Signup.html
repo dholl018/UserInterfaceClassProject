@@ -30,18 +30,18 @@
             <form class="action" id="signup-form" method="post">
                 <div>
                     <label for="first-name">First Name</label>
-                    <input id="first-name" type="text" class="textbox requiredBorder">
-                    <h5>*Required*</h5>
+                    <input id="first-name" type="text" class="textbox" required>
+                    <h5 id="requiredFname">*Required*</h5>
                 </div>
                 <div>
                     <label for="last-name">Last Name</label>
-                    <input id = "last-name" type="text" class="textbox warning">
-                    <h5>*Required*</h5>
+                    <input id = "last-name" type="text" class="textbox" required>
+                    <h5 id="requiredLname">*Required*</h5>
                 </div>
                 <div>
                     <label for="email">Email:</label>
-                    <input id="email" type="email" class="textbox">
-                    <h5>*Required*</h5>
+                    <input id="email" type="email" class="textbox" required>
+                    <h5 id="requiredEmail">*Required*</h5>
                 </div>
                 <h4>Password Requirements</h4>
                 <div>
@@ -61,11 +61,11 @@
                 </div>
                 <div>
                     <label for="password-signup">Password:</label>
-                    <input id = "password-signup" type="password" class="textbox password">
+                    <input id = "password-signup" type="password" class="textbox password" required>
                 </div>
                 <div>
                     <label for="retype-pass">Re-Type Password</label>
-                    <input id ="retype-pass" type="password" class="textbox password">
+                    <input id ="retype-pass" type="password" class="textbox password" required>
                 </div>
                 <button class="submit-b">Submit</button>
             </form>
