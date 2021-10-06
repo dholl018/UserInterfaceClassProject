@@ -1,5 +1,6 @@
 $(document).ready(function (){
 
+
     changeTextBoxColor();
     $('#password-signup').on('input',function (){
         passwordValidation()
@@ -17,11 +18,34 @@ $(document).ready(function (){
 })
 
 function changeTextBoxColor(){
-    if($("input.textbox[type=text]").val() === ''){
-        $("input.textbox[type=text]").addClass("requiredBorder");
+    var fname = $('#first-name').val();
+    if(fname.match(/[a-zA-z]/)){
+        $('#first-name').removeClass("requiredBorder");
     }
     else{
-        $("input.textbox[type=text]").removeClass("requiredBorder");
+        $('#first-name').addClass("requiredBorder");
+    }
+
+    var lname = $('#last-name').val();
+    if(lname.match(/[a-zA-z]/)){
+        $('#last-name').removeClass("requiredBorder");
+    }
+    else{
+        $('#last-name').addClass("requiredBorder");
+    }
+
+    if($("input.textbox[type=email]").val() === ''){
+        $("input.textbox[type=email]").addClass("requiredBorder");
+    }
+    else{
+        $("input.textbox[type=email]").removeClass("requiredBorder");
+    }
+
+    if($("input.textbox[type=password]").val() === ''){
+        $("input.textbox[type=password]").addClass("requiredBorder");
+    }
+    else{
+        $("input.textbox[type=password]").removeClass("requiredBorder");
     }
 }
     ///Query String
@@ -77,8 +101,8 @@ function searchQuery(){
 
     ///Validates Password
     function passwordValidation(){
-        let password = $("#password-signup").val();
-        let retypePassword = $('#retype-pass').val();
+        var password = $("#password-signup").val();
+        var retypePassword = $('#retype-pass').val();
         if (password.length >= 6) {
             $('#Six-Character').text('Password is at least 6 characters').css("color","green");
         }
