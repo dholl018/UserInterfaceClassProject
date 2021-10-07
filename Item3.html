@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Safety Report</title>
+    <script src="JavaScript/jquery-3.6.0.min.js"></script>
+    <script src="JavaScript/scrpts.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/ResponsiveDesign.css"/>
 </head>
 <body>
@@ -34,9 +36,9 @@
         <p class="report-submit">Found an unlabeled Chemical in the Lab. It is dangerous to leave samples unlabeled and unattended to.</p>
     </div><!--single report-->
     </div>
-    <div class="Comments-Section">
+    <div class="Comments-Section" id="section">
         <h3 class="commentHeader">Comments</h3>
-        <div class ="posted comments">
+        <div class ="posted comments" id="past-comments">
             <div class="comment1">
                 <p class ="posted-comment">Great watchout!!!</p>
                 <p class="posted-by">Posted Sept 1, 2021 by Jane Doe</p>
@@ -47,14 +49,12 @@
             </div> <!--comment2-->
 
         </div> <!--posted comment-->
-        <form>
+        <form id="new-comment-post" method="post">
             <h3 class="commentHeader">New Comment</h3>
             <button class="Likes">Like &#x25B2;</button>
             <button class="Dislike">Dislike &#x25BC;</button>
-            <textarea placeholder="Add Your Comment"></textarea>
-            <div class="btn">
-                <input type="submit" value="comment">
-            </div><!--btn-->
+            <textarea placeholder="Add Your Comment" id="user-Comment"></textarea>
+            <input type="button" value="comment" id="submit-comment">
         </form>
 
     </div> <!--comment-->
