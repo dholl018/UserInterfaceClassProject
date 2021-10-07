@@ -1,38 +1,44 @@
 $(document).ready(function (){
 
+    //calls the search function
     searchQuery();
-
+    ///Calls the password Validation if the input password box gets data
     $('input.password').on('input',function () {
         passwordValidation();
     })
+    ///Calls the password Validation if the input password box gets data
     $("input.textbox").on('input',function (){
         changeTextBoxColor();
     })
-
+    ///Adds a new comment when box is submitted
     $('#submit-comment').on('click',function (){
         Comment();
     })
 
 
-
 })
-
+/*
+    Adds a new comment to a previous report
+ */
 function Comment(){
     var newComment = $('#user-Comment').val();
     var UTCDate = new Date();
     var today= UTCDate.toDateString();
     $('#past-comments').append("<div class='comment1'><p class ='posted-comment'>"+ newComment + "</p><div><p class='posted-by'>Posted " + today + " by Stan Smith</p></div></div>");
 }
-
+/*
+    changes a section to red if rules are not followed
+ */
 function changeTextBoxColor(){
     var fname = $('#first-name').val();
+    //Makes sure there is at least on character in the first name box
     if(fname.match(/[a-zA-z]/)){
         $('#first-name').removeClass("requiredBorder");
     }
     else{
         $('#first-name').addClass("requiredBorder");
     }
-
+    //Makes sure there is at least on character in the last name box
     var lname = $('#last-name').val();
     if(lname.match(/[a-zA-z]/)){
         $('#last-name').removeClass("requiredBorder");
@@ -47,14 +53,15 @@ function changeTextBoxColor(){
     else{
         $("#email-text").addClass("requiredBorder");
     }
-
+    //If password is blank flag an error
     if($("input.textbox[type=password]").val() === ''){
         $("input.textbox[type=password]").addClass("requiredBorder");
     }
     else{
         $("input.textbox[type=password]").removeClass("requiredBorder");
     }
-        if($("#retype-pass").val() === ''){
+    //If retype password space is blank flag an error
+    if($("#retype-pass").val() === ''){
         $("#retype-pass").addClass("requiredBorder");
     }
     else{
@@ -73,9 +80,11 @@ function searchQuery(){
             case 'HELP':
             case 'HEPL'://common misspelling
                 $('#search-header').text('Search results found for the term ' + "\""+keyword+"\"");
+                $('.Report-content').append("<p>1.  <a href='./Help.html'>Help folder</a></p>");
                 break;
             case 'PALLET':
                 $('#search-header').text('Search results found for the term ' + "\""+keyword+"\"");
+                $('.Report-content').append("<p>1.  <a href='./Item.html'>Metal bracket protruding from pallet</a></p>");
                 break;
             case 'PRIVACY':
             case 'PRIVAY': //common misspelling
