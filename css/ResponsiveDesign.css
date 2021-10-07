@@ -44,7 +44,7 @@ ul#primary-nav li{
     color: white;
 }
 ul#primary-nav li a.selected{
-    background-color: black;
+    background-color: gold;
 
 }
 form#Login-box{
@@ -637,6 +637,9 @@ input#search-button{
     div#Help-Statement{
         margin-left:25%;
         font: 30px/15px "Times New Roman";
+    }
+    .correct-format{
+        color: green;
     }
     /*Largest Dest top screens*/
     @media all and (min-width:955px) {

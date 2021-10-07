@@ -1,21 +1,23 @@
 $(document).ready(function (){
 
-
-    changeTextBoxColor();
-    $('#password-signup').on('input',function (){
-        passwordValidation()
-    })
-    $('#retype-pass').on('input',function () {
-        passwordValidation()
-    })
     searchQuery();
-    $("input.textbox[type=text]").on('input',function (){
+
+    $('input.password').on('input',function () {
+        passwordValidation();
+    })
+    $("input.textbox").on('input',function (){
         changeTextBoxColor();
     })
 
 
 
+
+
 })
+
+function NewComment(){
+    $('#test').append("<div class='comment1'><p class ='posted-comment'>Great watchout!!!</p><p class='posted-by'>Posted Sept 1, 2021 by Jane Doe</p></div>");
+}
 
 function changeTextBoxColor(){
     var fname = $('#first-name').val();
@@ -33,12 +35,12 @@ function changeTextBoxColor(){
     else{
         $('#last-name').addClass("requiredBorder");
     }
-
-    if($("input.textbox[type=email]").val() === ''){
-        $("input.textbox[type=email]").addClass("requiredBorder");
+    var emailText = $('#email-text').val();
+    if(emailText.match(/[a-zA-z]/)){
+        $("#email-text").removeClass("requiredBorder");
     }
     else{
-        $("input.textbox[type=email]").removeClass("requiredBorder");
+        $("#email-text").addClass("requiredBorder");
     }
 
     if($("input.textbox[type=password]").val() === ''){
@@ -47,11 +49,17 @@ function changeTextBoxColor(){
     else{
         $("input.textbox[type=password]").removeClass("requiredBorder");
     }
+        if($("#retype-pass").val() === ''){
+        $("#retype-pass").addClass("requiredBorder");
+    }
+    else{
+        $("#retype-pass").removeClass("requiredBorder");
+    }
 }
     ///Query String
 function searchQuery(){
     var queryURL = window.location.search;
-    console.log(queryURL);
+    //console.log(queryURL);
     var urlparameters = new URLSearchParams(queryURL);
     if(urlparameters.has('search-box')){
         var keyword = urlparameters.get('search-box');
@@ -63,7 +71,6 @@ function searchQuery(){
                 break;
             case 'PALLET':
                 $('#search-header').text('Search results found for the term ' + "\""+keyword+"\"");
-                window.alert('pallet');
                 break;
             case 'PRIVACY':
             case 'PRIVAY': //common misspelling
@@ -103,38 +110,61 @@ function searchQuery(){
     function passwordValidation(){
         var password = $("#password-signup").val();
         var retypePassword = $('#retype-pass').val();
+        /*
+            Checks if password is at least 6 characters
+            If so changes text green if not keeps it red
+         */
         if (password.length >= 6) {
-            $('#Six-Character').text('Password is at least 6 characters').css("color","green");
+            $('#Six-Character').removeClass('warning');
+            $('#Six-Character').text('Password is at least 6 characters').addClass('correct-format');
         }
         else{
-            $('#Six-Character').text('Password MUST be at 6 characters').css("color","red");
+            $('#Six-Character').removeClass('correct-format');
+            $('#Six-Character').text('Password MUST be at 6 characters').addClass('warning');
         }
-        //Test if password matches retype
+        /*Test if password matches retype
+        If so changes text green if not keeps it red
+         */
         if(password === retypePassword){
-            $('#matching-Password').text('Password match').css("color","green");
+            $('#matching-Password').removeClass('warning');
+            $('#matching-Password').text('Password match').addClass('correct-format');
         }
         else {
-            $('#matching-Password').text('Password DO NOT match').css("color","red");
+            $('#matching-Password').removeClass('correct-format');
+            $('#matching-Password').text('Passwords DO NOT match').addClass('warning');
         }
-        ///contains upper case
+        /*contains upper case
+        If so changes text green if not keeps it red
+         */
         if(password.match(/[A-Z]/)){
-            $('#contains-upper').text('Password contains at least 1 upper case character').css("color","green");
-        }
-        else{
-            $('#contains-upper').text('Password DOES NOT contain at least 1 upper case').css("color","red");
-        }
+            $('#contains-upper').removeClass('warning');
+            $('#contains-upper').text('Password contains at least 1 upper case character').addClass('correct-format');
 
+        }
+        else{
+            $('#contains-upper').removeClass('correct-format');
+            $('#contains-upper').text('Password DOES NOT contain at least 1 upper case').addClass('warning');
+        }
+        /*Test if password contains 1 lower case character
+            If so changes text green
+         */
         if(password.match(/[a-z]/)){
-            $('#contains-lower').text('Password contains at least 1 lower case character').css("color","green");
+            $('#contains-lower').removeClass('warning');
+            $('#contains-lower').text('Password contains at least 1 lower case character').addClass('correct-format');
         }
         else{
-            $('#contains-lower').text('Password DOES NOT contain at least 1 lower case').css("color","red");
+            $('#contains-lower').removeClass('correct-format');
+            $('#contains-lower').text('Password DOES NOT contain at least 1 lower case').addClass('warning');
         }
-        ///Contains number
+        /*Checks if password Contains number
+            If so changes text green if not keeps it red
+         */
         if(password.match(/[0-9]/)){
-            $('#contains-number').text('Password contains at least 1 number').css("color","green");
+            $('#contains-number').removeClass('warning');
+            $('#contains-number').text('Password contains at least 1 number').addClass('correct-format');
         }
         else{
-            $('#contains-number').text('Password DOES NOT contain at least 1 number').css("color","red");
+            $('#contains-number').removeClass('correct-format');
+            $('#contains-number').text('Password DOES NOT contain at least 1 number').addClass('warning');
         }
     }
