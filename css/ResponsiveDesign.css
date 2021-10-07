@@ -379,6 +379,11 @@ input#search-button{
 .requiredBorder{
     border-color: red;
 }
+.search-box{
+    width: initial;
+    max-width: 70%;
+    margin-left: 20%;
+}
 /*Non mobile Applications*/
 @media all and (min-width:376px) {
     html, body{
