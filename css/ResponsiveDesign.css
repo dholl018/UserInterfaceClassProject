@@ -321,6 +321,9 @@ label#labelAnonymous{
     outline: none;
     margin-bottom: 2px;
 }
+.posted-comment{
+    overflow-wrap: break-word;
+}
 /*Fixes the help banner*/
 div#helpbanner{
     background-color: #43d9e7;
