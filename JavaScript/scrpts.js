@@ -9,14 +9,19 @@ $(document).ready(function (){
         changeTextBoxColor();
     })
 
-
+    $('#submit-comment').on('click',function (){
+        Comment();
+    })
 
 
 
 })
 
-function NewComment(){
-    $('#test').append("<div class='comment1'><p class ='posted-comment'>Great watchout!!!</p><p class='posted-by'>Posted Sept 1, 2021 by Jane Doe</p></div>");
+function Comment(){
+    var newComment = $('#user-Comment').val();
+    var UTCDate = new Date();
+    var today= UTCDate.toDateString();
+    $('#past-comments').append("<div class='comment1'><p class ='posted-comment'>"+ newComment + "</p><div><p class='posted-by'>Posted " + today + " by Stan Smith</p></div></div>");
 }
 
 function changeTextBoxColor(){
