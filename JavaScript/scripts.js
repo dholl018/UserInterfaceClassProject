@@ -80,7 +80,7 @@ function searchQuery(){
             case 'HELP':
             case 'HEPL'://common misspelling
                 $('#search-header').text('Search results found for the term ' + "\""+keyword+"\"");
-                $('.Report-content').append("<p>1.  <a href='./Help.html'>Help folder</a></p>");
+                $('.Report-content').append("<p>1.  <a href='./Help.html'>Help</a></p>");
                 break;
             case 'PALLET':
                 $('#search-header').text('Search results found for the term ' + "\""+keyword+"\"");

@@ -372,6 +372,11 @@ div#content .submit-b{
 
 input#search-button{
     padding: 5px 0 5px 0;
+    cursor: pointer;
+}
+input#search-button:hover{
+    background-color: #ddd;
+    color: black;
 }
 .warning{
     color:red;
