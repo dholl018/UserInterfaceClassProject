@@ -14,9 +14,23 @@ $(document).ready(function (){
     $('#submit-comment').on('click',function (){
         Comment();
     })
+    $('#signup-form').submit(function (){
+        if($('ul').children().hasClass('warning')){
+            window.alert('Password Requirements not met')
+            return false;
+        }
+        else if($('div').children().hasClass('requiredBorder')){
+            window.alert('A Field has been left blank')
+            return false;
+        }
+        else{
+            return true;
+        }
 
+    })
 
 })
+
 /*
     Adds a new comment to a previous report
  */

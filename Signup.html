@@ -15,7 +15,7 @@
                 <h1>Welcome</h1>
             </div> <!--title box-->
             <ul id="primary-nav"> <!--Primary container-->
-                <li><a href="Home.html" class="nav-link">Home</a></li> <!--function to bypass log in-->
+                <li><a href="index_notLogin.html" class="nav-link">Home</a></li> <!--function to bypass log in-->
                 <li><a href="AboutUs.html" class="nav-link">About</a></li>
                 <li><a href="PrivacyPolicy.html" class="nav-link">Privacy</a></li>
             </ul>
@@ -27,14 +27,14 @@
         </div>
         <div id ="content">
 
-            <form class="action" id="signup-form" action="Home.html" method="post">
+            <form class="action" id="signup-form" action="index.html" method="post">
                 <div>
                     <label for="first-name">First Name</label>
-                    <input id="first-name" type="text" class="textbox" required>
+                    <input id="first-name" type="text" class="textbox">
                 </div>
                 <div>
                     <label for="last-name">Last Name</label>
-                    <input id = "last-name" type="text" class="textbox" required>
+                    <input id = "last-name" type="text" class="textbox">
                 </div>
                 <div>
                     <label for="email-text">Email:</label>
@@ -42,29 +42,24 @@
                 </div>
                 <h4>Password Requirements</h4>
                 <div>
-                    <p id="Six-Character" class="warning"> Password MUST be at 6 characters</p>
-                </div>
-                <div>
-                    <p id="matching-Password" class="warning"> Passwords DO NOT match.</p>
-                </div>
-                <div>
-                    <p id="contains-upper" class="warning"> Password DOES NOT contain at least 1 upper case.</p>
-                </div>
-                <div>
-                    <p id="contains-lower" class="warning"> Password DOES NOT contain at least 1 lower case</p>
-                </div>
-                <div>
-                    <p id="contains-number" class="warning"> Password DOES NOT contain at least 1 number.</p>
+                    <ul>
+                        <li id="Six-Character" class="warning">Password MUST be at 6 characters</li>
+                        <li id="matching-Password" class="warning"> Passwords DO NOT match.</li>
+                        <li id="contains-upper" class="warning"> Password DOES NOT contain at least 1 upper case.</li>
+                        <li id="contains-lower" class="warning"> Password DOES NOT contain at least 1 lower case</li>
+                        <li id="contains-number" class="warning"> Password DOES NOT contain at least 1 number.</li>
+                    </ul>
+
                 </div>
                 <div>
                     <label for="password-signup">Password:</label>
-                    <input id = "password-signup" type="password" class="textbox password" required>
+                    <input id = "password-signup" type="password" class="textbox password">
                 </div>
                 <div>
                     <label for="retype-pass">Re-Type Password</label>
-                    <input id ="retype-pass" type="password" class="textbox password" required>
+                    <input id ="retype-pass" type="password" class="textbox password">
                 </div>
-                <button class="submit-b">Submit</button>
+                <button class="submit-b" id="submit-signup">Submit</button>
             </form>
         </div>
 </body>
