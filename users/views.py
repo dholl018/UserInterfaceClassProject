@@ -33,6 +33,8 @@ def edit_profile_subit(request, username):
         last_name = request.POST.get("lastname")
         password = request.POST.get("retypePassword")
         role = request.POST.get("role")
+        actorUsername = request.session["username"]
+        actor = User.objects.get(username=actorUsername)
         user = User.objects.get(username=username)
         previousRole = user.details.role
         user.last_name = last_name
@@ -43,7 +45,7 @@ def edit_profile_subit(request, username):
         if previousRole != role:
             if role == 'admin':
                 action = Action(
-                    user=user,
+                    user=actor,
                     verb="Has made a new Admin",
                     target=user,
                 )

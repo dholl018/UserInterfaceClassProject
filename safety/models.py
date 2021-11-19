@@ -4,6 +4,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+from django.urls import reverse
+
 
 class SafetyReport(models.Model):
     title = models.CharField(max_length=200)
@@ -19,6 +21,9 @@ class SafetyReport(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('Safety:report-details', args=[self.id])
+
 
 class CommentSection(models.Model):
     report = models.ForeignKey(SafetyReport, related_name="comments",  on_delete=models.CASCADE)
@@ -30,6 +35,9 @@ class CommentSection(models.Model):
 
     def __str__(self):
         return self.report.title
+
+    def get_absolute_url(self):
+        return reverse('Safety:report-details', args=[self.attached_report])
 
 
 class UserNameDatabase(models.Model):

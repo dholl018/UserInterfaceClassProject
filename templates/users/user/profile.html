@@ -21,7 +21,7 @@
                 <form id="post-tools" action="{% url 'users:edit-profile' user.username %}" method="POST">
                     {% csrf_token %}
                     <h2>Edit Profile</h2>
-                    <input type="submit" class="Dislike"  value="Edit Profile" id="delete-post">
+                    <input type="submit" class="Dislike"  value="Edit Profile">
                 </form>
             {% endif %}
         </div>
