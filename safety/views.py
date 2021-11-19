@@ -11,8 +11,6 @@ from django.http import JsonResponse
 # Create your views here.
 def safety_report_list(request):
     report = SafetyReport.objects.all()
-    if 'role' not in request.session:
-        return redirect('Safety:home')
     return render(request,
                   "Safety/safety_report/list.html",
                   {"reports": report}
@@ -30,12 +28,6 @@ def search_results(request):
 
 def safety_report_detail(request, report_id):
     report = SafetyReport.objects.get(id=report_id)
-    if 'role' not in request.session:
-        return redirect('Safety:home')
-    #    key = request.GET(report_id)
-    #    for report in new_report:
-    #        if report_id == report.id:
-    #            break
     return render(request,
                   "Safety/safety_report/details.html",
                   {'report': report}
@@ -179,10 +171,11 @@ def new_safety_report(request):
 
 def home_user_logged_in(request):
     if 'role' not in request.session:
-        return redirect('Safety:home')
-    username = request.session['username']
-    user1 = get_object_or_404(User, username=username)
-    actions = Action.objects.filter(user=user1)
+        actions = Action.objects.all()[0:10]
+    else:
+        username = request.session['username']
+        user1 = get_object_or_404(User, username=username)
+        actions = Action.objects.filter(user=user1)
     return render(request,
                   "Safety/home_user_Logged_In.html",
                   {"actions": actions}

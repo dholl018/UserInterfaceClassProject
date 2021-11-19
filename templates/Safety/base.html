@@ -29,9 +29,6 @@
     <div class="container">
         <div id="header"> <!--Header-->
 
-
-
-                {% if request.session.username %}
                 <ul id="primary-nav"> <!--primary nav-->
                     <li class="move-left first-Item"><a href="{% url 'Safety:home_user_logged_in' %}">Home</a></li>
                     <li class="move-left"><a href="{% url 'Safety:about' %}">About</a></li>
@@ -42,13 +39,7 @@
                         {% block searchBar %}{% endblock searchBar %}
                     </li>
                 </ul><!--primary nav-->
-                {% else %}
-                    <ul id="primary-nav"> <!--Primary container-->
-                        <li><a href="{% url 'Safety:home' %}" class="move-left first-Item">Home</a></li> <!--function to bypass log in-->
-                        <li><a href="{% url 'Safety:about' %}" class="move-left">About</a></li>
-                        <li><a href="{% url 'Safety:privacy' %}" class="move-left">Privacy</a></li>
-                    </ul>
-                {% endif %}
+
         </div> <!--header box-->
             {% if messages %}
             <ul class="messages">

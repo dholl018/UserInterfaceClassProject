@@ -452,9 +452,28 @@ input#search-button:hover{
         background-color: #01579b;
         color: white;
     }
+
+    dl{
+        display: grid;
+        grid-template-columns: 25% 25%;
+    }
+
+    .profile-list {
+        max-width: 50%;
+    }
+    .profile {
+        max-width: 100%
+    }
 /*Non mobile Applications*/
 @media all and (min-width:376px) {
     html, body{
+    }
+        .profile {
+            margin-left: 150px;
+            margin-right: auto;
+            left: 50%;
+            width: 50%;
+            height: 70%;
     }
 
     .welcome-container{

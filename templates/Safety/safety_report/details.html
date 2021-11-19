@@ -61,6 +61,7 @@
                 <p>No comments have been posted yet.</p>
             {% endfor %}
             <h3 class="commentHeader">New Comment</h3>
+        {% if request.session.username %}
             <button class="Likes" id="like-button" data-report-id="{{ report.id }}" data-ajax-url="{% url "Safety:like-post" %}">Like Post &#x25B2;</button>
             <button class="Dislike">Dislike Post &#x25BC;</button>
         <form id="new-comment-post" action="{% url 'safety:post-comment' report.id %}" method="POST">
@@ -68,6 +69,9 @@
             <textarea placeholder="Add Your Comment" id="user-Comment" name="newComment"></textarea>
             <input type="submit" value="comment" id="submit-comment">
         </form>
+            {% else %}
+            <p>Plese login post a comment</p>
+        {% endif %}
 
     </div> <!--comment-->
 

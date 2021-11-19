@@ -46,14 +46,14 @@ def edit_profile_subit(request, username):
             if role == 'admin':
                 action = Action(
                     user=actor,
-                    verb="Has made a new Admin",
+                    verb="Has upgraded a user to admin.",
                     target=user,
                 )
                 action.save()
             else:
                 action = Action(
-                    user=user,
-                    verb="Has made a new regular user",
+                    user=actor,
+                    verb="Has changed a user role",
                     target=user,
                 )
                 action.save()
@@ -116,9 +116,10 @@ def login_user(request):
         request.session['username'] = user.username
         request.session['role'] = user.details.role
         messages.add_message(request, messages.SUCCESS, "You have logged in successfully.")
+        return redirect('Safety:home_user_logged_in')
     else:
         messages.add_message(request, messages.ERROR, "Invalid username or password.")
-    return redirect('Safety:home_user_logged_in')
+        return redirect('Safety:home_user_logged_in')
 
 
 def logout_user(request):

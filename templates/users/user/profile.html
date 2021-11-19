@@ -2,43 +2,49 @@
 {% load static %}
 {% block title_statement %}Profile for {{ user.username }}{% endblock title_statement %}
 {% block content %}
-    <dl>
-        <dt>Username</dt>
-        <dd>{{ user.username }}</dd>
-        <dt>First Name</dt>
-        <dd>{{ user.first_name }}</dd>
-        <dt>Last Name</dt>
-        <dd>{{ user.last_name }}</dd>
-        <dt>Email</dt>
-        <dd>{{ user.email }}</dd>
-        <dt>Date Joined</dt>
-        <dd>{{ user.date_joined }}</dd>
-        <dt>Role:</dt>
-        <dd>{{ user.details.role }}</dd>
-    </dl>
-        <div>
-            {% if request.session.role == 'admin' or request.session.username == user.username %}
-                <form id="post-tools" action="{% url 'users:edit-profile' user.username %}" method="POST">
-                    {% csrf_token %}
-                    <h2>Edit Profile</h2>
-                    <input type="submit" class="Dislike"  value="Edit Profile">
-                </form>
-            {% endif %}
+    <div class="profile">
+        <div class="profile-list">
+        <h2>Profile for {{ user.username }}</h2>
+               <dl>
+                <dt class="col1">Username</dt>
+                <dd>{{ user.username }}</dd>
+                <dt>First Name</dt>
+                <dd>{{ user.first_name }}</dd>
+                <dt>Last Name</dt>
+                <dd>{{ user.last_name }}</dd>
+                <dt>Email</dt>
+                <dd>{{ user.email }}</dd>
+                <dt>Date Joined</dt>
+                <dd>{{ user.date_joined }}</dd>
+                <dt>Role:</dt>
+                <dd>{{ user.details.role }}</dd>
+            </dl>
         </div>
 
-{#    <div id="center-div">#}
-{#            <h3>First Name:</h3>#}
-{#            <p class="Report-Title">{{ user.first_name }}</p>#}
-{#            <h3>Last Name:</h3>#}
-{#            <p class="person-submit">{{ report.author }}</p>#}
-{#            <h3>Email:</h3>#}
-{#            <p class="person-submit">{{ report.location }}</p>#}
-{#            <h3>Join Date:</h3>#}
-{#            <p class ="date-submit">{{ report.date_posted }}</p>#}
-{#        </div><!--single report-->#}
+            <div>
+                {% if request.session.role == 'admin' or request.session.username == user.username %}
+                    <form id="post-tools" action="{% url 'users:edit-profile' user.username %}" method="POST">
+                        {% csrf_token %}
+                        <h2>Edit Profile</h2>
+                        <input type="submit" class="Dislike"  value="Edit Profile">
+                    </form>
+                {% endif %}
+            </div>
+
+    {#    <div id="center-div">#}
+    {#            <h3>First Name:</h3>#}
+    {#            <p class="Report-Title">{{ user.first_name }}</p>#}
+    {#            <h3>Last Name:</h3>#}
+    {#            <p class="person-submit">{{ report.author }}</p>#}
+    {#            <h3>Email:</h3>#}
+    {#            <p class="person-submit">{{ report.location }}</p>#}
+    {#            <h3>Join Date:</h3>#}
+    {#            <p class ="date-submit">{{ report.date_posted }}</p>#}
+    {#        </div><!--single report-->#}
 
 
-{% endblock %}
-{% block sidebar %}
-    {% include "actions/action/feed.html" %}
-{% endblock %}
+    {% endblock %}
+    {% block sidebar %}
+        {% include "actions/action/feed.html" %}
+    {% endblock %}
+</div>
