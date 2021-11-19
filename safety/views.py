@@ -162,7 +162,7 @@ def add_report(request):
 
 
 def new_safety_report(request):
-    if 'role' not in request.session:
+    if 'username' not in request.session:
         return redirect('Safety:home')
     return render(request,
                   "Safety/safety_report/Add_Item.html",
@@ -170,7 +170,7 @@ def new_safety_report(request):
 
 
 def home_user_logged_in(request):
-    if 'role' not in request.session:
+    if 'username' not in request.session:
         actions = Action.objects.all()[0:10]
     else:
         username = request.session['username']
