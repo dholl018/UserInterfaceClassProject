@@ -5,7 +5,7 @@
         {% for action in actions %}
             <li><a href="{{ action.user.get_absolute_url }}">{{ action.user.username }}</a> {{ action.verb }} <a href="{{ action.target.get_absolute_url }}">{{ action.target }}</a> {{ action.created|naturalday }}</li>
         {% empty %}
-            <li>No Activty</li>
+            <li>No Activity</li>
         {% endfor %}
     </ul>
 </div>
