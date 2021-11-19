@@ -16,6 +16,8 @@ import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django_heroku
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -151,3 +153,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
+django_heroku.settings(locals())
