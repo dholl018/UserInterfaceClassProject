@@ -123,6 +123,9 @@ def login_user(request):
 
 
 def logout_user(request):
-    del request.session['username']
-    del request.session['role']
+    try:
+        del request.session['username']
+        del request.session['role']
+    except KeyError:
+        pass
     return redirect('safety:home')
