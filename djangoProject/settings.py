@@ -148,4 +148,4 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
