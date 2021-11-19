@@ -1,0 +1,82 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width">
+        <title>{% block title_statement %}NRV District Safety{% endblock title_statement %}</title>
+        <script src="{% static "JavaScript/jquery-3.6.0.min.js"%}"></script>
+        {% block head %}
+        {% endblock %}
+        <script defer src="{% static "JavaScript/scripts.js" %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/ResponsiveDesign.css"%}">
+    </head>
+
+    <body>
+    <div>
+         {% block MainImage %}
+             <div id="title-box">
+                <img src ="{% static "img/VPPStar.jpg" %}" alt="VPP Star">
+                <h1>NRV District Safety</h1>
+             </div> <!--title box-->
+        {% endblock %}
+               {% if request.session.username %}
+                  <form id="user-login">
+                    <p>Welcome <stong>{{ request.session.username }}</stong> | <a href="{% url 'users:logout' %}">Log out</a> </p>
+                  </form>
+               {% endif %}
+    </div>
+    <div class="container">
+        <div id="header"> <!--Header-->
+
+
+
+                {% if request.session.username %}
+                <ul id="primary-nav"> <!--primary nav-->
+                    <li class="move-left first-Item"><a href="{% url 'Safety:home_user_logged_in' %}">Home</a></li>
+                    <li class="move-left"><a href="{% url 'Safety:about' %}">About</a></li>
+                    <li class="move-left"><a href="{% url 'Safety:new_safety_report' %}">New Safety Report</a></li>
+                    <li class="move-left"><a href="{% url 'Safety:my_safety_reports' %}">My Reports</a></li>
+                    <li class="move-left"><a href="{% url 'Safety:safety_report_list' %}">All Reports</a></li>
+                    <li class="move-right last-Item">
+                        {% block searchBar %}{% endblock searchBar %}
+                    </li>
+                </ul><!--primary nav-->
+                {% else %}
+                    <ul id="primary-nav"> <!--Primary container-->
+                        <li><a href="{% url 'Safety:home' %}" class="move-left first-Item">Home</a></li> <!--function to bypass log in-->
+                        <li><a href="{% url 'Safety:about' %}" class="move-left">About</a></li>
+                        <li><a href="{% url 'Safety:privacy' %}" class="move-left">Privacy</a></li>
+                    </ul>
+                {% endif %}
+        </div> <!--header box-->
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        <div>
+            {% block content %}
+
+            {% endblock %}
+            {% block sidebar %}
+
+            {% endblock %}
+         </div>
+
+    </div> <!--conatiner-->
+    <div>
+            <footer id="copyright">
+                <ul id="footer-nav"> <!--footer navigation-->
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="Help.html">Help</a></li>
+                    <li class="move-right">NRV District Safety &copy;</li>
+                </ul><!--footer navigation-->
+            </footer>
+    </div>
+    </body>
+</html>

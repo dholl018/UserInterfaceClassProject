@@ -1,0 +1,15 @@
+{% extends "Safety/base.html" %}
+{% block searchBar %}
+    <div class="move-right">
+        <form action ="{% url 'Safety:search_results' %}" id="search-form" method="get">
+            <input type="text" name = "search-box" class="search-box" placeholder="Search">
+            <input type="submit" id="search-button" value="Search">
+        </form>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class ="Report-content">
+        <h2 id="search-header">Search Results</h2>
+        <p id ="search-results"></p>
+    </div>
+{% endblock %}

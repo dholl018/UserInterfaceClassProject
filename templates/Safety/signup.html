@@ -1,0 +1,52 @@
+{% extends "Safety/base.html" %}
+{% load static %}
+{% block content %}
+        <div class="intro-paragraph">
+            <h4>
+                Welcome please fill out this form to enjoy the full features of our site.
+            </h4>
+        </div>
+        <div id ="content">
+
+            <form class="action" id="signup-form" action="index.html" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="first-name">First Name</label>
+                    <input id="first-name" type="text" class="textbox">
+                </div>
+                <div>
+                    <label for="last-name">Last Name</label>
+                    <input id = "last-name" type="text" class="textbox">
+                </div>
+                <div>
+                    <label for="email-text">Email:</label>
+                    <input id="email-text" type="email" class="textbox" required>
+                </div>
+                <div>
+                    <label for="email-text">Username:</label>
+                    <input id="username-text" type="text" class="textbox" data-username-url="{% url 'Safety:signup_check' %}" required>
+                    <p id="user-name-message" class="warning hide">Username has been taken</p>
+                </div>
+                <h4>Password Requirements</h4>
+                <div>
+                    <ul>
+                        <li id="Six-Character" class="warning">Password MUST be at 6 characters</li>
+                        <li id="matching-Password" class="warning"> Passwords DO NOT match.</li>
+                        <li id="contains-upper" class="warning"> Password DOES NOT contain at least 1 upper case.</li>
+                        <li id="contains-lower" class="warning"> Password DOES NOT contain at least 1 lower case</li>
+                        <li id="contains-number" class="warning"> Password DOES NOT contain at least 1 number.</li>
+                    </ul>
+
+                </div>
+                <div>
+                    <label for="password-signup">Password:</label>
+                    <input id = "password-signup" type="password" class="textbox password">
+                </div>
+                <div>
+                    <label for="retype-pass">Re-Type Password</label>
+                    <input id ="retype-pass" type="password" class="textbox password">
+                </div>
+                <button class="submit-b" id="submit-signup">Submit</button>
+            </form>
+        </div>
+{% endblock %}

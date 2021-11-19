@@ -1,0 +1,26 @@
+{% extends "Safety/base.html" %}
+{% block title_statement %}
+    Safety Report
+{% endblock %}
+{% block content %}
+    <div id ="content">
+        <form id="Report-Form" class="add_comment" action="{% url 'Safety:add_report' %}" method="post"> <!--Form to collect data-->
+            {% csrf_token %}
+            <label id="formTitleLab" for="ftitle" class="col25">Title:</label>
+            <input type="text" id="ftitle" name="title">
+            <p class="title-required warning">Required</p>
+{#            <label id="labelsubmitterForm" for="submitterForm" class="col75">Submitter:</label>#}
+{#            <input  type="text" id="submitterForm" value ="{{ request.session.username }}" name="submitter" readonly>#}
+            <label id="labelAnonymous" for="fAnonymous" class="AnonCheck">Anonymous:
+                <input type="checkbox" value="Anonymous Post" id="fAnonymous"></label>
+            <label id="labelLocationForm" for="LocationForm" class="col75">Location:</label>
+            <input  type="text" id="LocationForm" name="location">
+            <p class="location-required warning">Required</p>
+{#            <label id="labelDate" for="fdate" name="date">Date:</label>#}
+{#            <input type="date" value="2021-09-09" id="fdate">#}
+            <textarea id="report" name="report" placeholder="Type Report..." name="description"></textarea>
+            <p class="description-required warning">Required</p>
+            <input type="submit" value="Submit">
+        </form><!--Report Form-->
+    </div>
+{% endblock %}

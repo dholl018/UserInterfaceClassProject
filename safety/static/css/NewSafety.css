@@ -1,0 +1,13 @@
+html, body{
+    margin: 0; padding: 0;
+    font-family: 'Arial';
+    background-image: url(/Images/workpacesafety.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.banner{
+    background-image: url(/Images/workpacesafety.png);
+    background-Size:cover;
+}

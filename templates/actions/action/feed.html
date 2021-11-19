@@ -1,0 +1,9 @@
+{% load humanize %}
+<h3>Recent Activity</h3>
+<ul>
+    {% for action in actions %}
+        <li>{{ action.user.username }} {{ action.verb }} {{ action.target }} {{ action.created|naturalday }}</li>
+    {% empty %}
+        <li>No Activty</li>
+    {% endfor %}
+</ul>

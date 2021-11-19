@@ -1,0 +1,17 @@
+{% extends "Safety/base.html" %}
+{% load static %}
+{% block MainImage %}
+    <div id="bannerImage">
+        <img src="{% static 'img/privacyPolcy.png' %}" alt="privacy">
+    </div>
+{% endblock %}
+{% block content %}
+    <div id ="privacy-State"> <!--privacy statement-->
+            <h2>What we Collect?</h2>
+            <p>Data needed to maintain log in as well as submitted reports for the database.</p>
+            <h2>What we don't collect?</h2>
+            <p>IP address or other Geo-locational data, tracking across websites as well as we don't sell your data.</p>
+            <h2> What we maintain?</h2>
+            <p>Email address and name used to sign up.</p>
+    </div> <!--privacy-State-->
+{% endblock %}

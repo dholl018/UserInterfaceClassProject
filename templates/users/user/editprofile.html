@@ -1,0 +1,34 @@
+{% extends "Safety/base.html" %}
+{% load static %}
+{% block title_statement %}Edit Profile for {{ user.username }}{% endblock title_statement %}
+{% block content %}
+        <div id ="content">
+        <h3>Edit Profile</h3>
+        <form id="Report-Form" class="add_comment" action="{% url 'users:edit-profile-submit' user.username %}" method="post"> <!--Form to collect data-->
+            {% csrf_token %}
+            <label id="formTitleLab" for="ftitle" class="col25">Username: {{ user.username }}</label>
+            <label for="firstNameField" class="col75">First Name:</label>
+                <input  type="text" id="firstNameField" value="{{ user.first_name }}" name="firstname">
+            <label for="lastNameField" class="col75">Last Name:</label>
+                <input  type="text" id="lastNameField" value="{{ user.last_name }}" name="lastname">
+            <label for="emailField" class="col75">Email:</label>
+                <input  type="email" id="emailField" value="{{ user.email }}" name="email">
+            <label for="passwordField" class="col75">Password:</label>
+                <input  type="password" id="passwordField" name="password">
+            <label for="retypePasswordField" class="col75">Retype Password:</label>
+                <input  type="password" id="retypePasswordField" name="retypePassword">
+            {% if request.session.role == 'admin' %}
+                <h4>Administrator Role Change</h4>
+                <label id="roleForm">Current Role: {{ user.details.role }}</label>
+                <label id="roleForm">Change Role</label>
+                <select name="role" id="rolebox" data-role-details="{{ user.details.role }}">
+                    <option value="regular">Regular User</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            {% else %}
+                <label id="roleForm">Role: {{ user.details.role }}</label>
+            {% endif %}
+            <input type="submit" value="Submit">
+        </form><!--Report Form-->
+    </div>
+{% endblock %}

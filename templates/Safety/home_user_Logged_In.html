@@ -1,0 +1,30 @@
+{% extends "Safety/base.html" %}
+{% load static %}
+{% block content %}
+        <div class="events">
+            <h3 class="eTitle">Events</h3>
+            <a href="https://vpppa.atlasams.com/events/Leveraging-Talent-for-EHS-and-Business-Success-Webinar-7495/details" class="evenList"> Webinar </a>
+            <p>September 30, 2021</p>
+            <a href="https://www.vpppa.org/safety-plus-2021.html" class="evenList">VPPPA's Annual Safety+ Symposium </a>
+            <p>August 31, 2021</p>
+        </div><!--events-->
+        <div class="hompage-Data">
+            <div id="headerGraph">
+                <h2>Virginia Statistics</h2>
+                <p>
+                    In viewing the impact of the unfunded CSHO positions through the lens of VOSH hazard instances (i.e., each hazard instance corrected represents an occupational hazard that was corrected and from which employees were protected), there has also been a steady decline over the last several calendar
+                    years, which represents increased risk for Virginia employees and employers. The average number of
+                    instances (16,534) for the most recent three (3) years of 2016 to 2018 is 29.2% below that for the
+                    period 2010 to 2012 (23,339).
+                </p>
+            </div> <!--header Graph-->
+
+        <img id="VaReportGraph" src ="{% static "img/VaHazInsBlue.PNG" %}" alt="Va Hazards">
+            <img id="VaStarCompanies" src ="{% static "img/StarSites.PNG" %}" alt="Va Star">
+        <p class="star-companies">While rare in the state the NRV has at least on company achieve VA Star Status. These companies have committed to go above and beyond the start requirements.</p>
+     </div> <!--hom page Data-->
+
+{% endblock %}
+{% block sidebar %}
+    {% include "actions/action/feed.html" %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "Safety/base.html" %}
+{% load humanize %}
+{% block title_statement %}All Reports{% endblock %}
+{% block searchBar %}
+    <div class="move-right">
+        <form action ="{% url 'Safety:search_results' %}" id="search-form" method="get">
+            <input type="text" name = "search-box" class="search-box" placeholder="Search">
+            <input type="submit" id="search-button" value="Search">
+        </form>
+    </div>
+{% endblock %}
+{% block content %}
+<div class ="Report-content">
+    <ul id="search-options">
+        <li><a href="#">Advanced Search</a></li>
+    </ul>
+    <div>
+        <h3 class="titleheader">Safety Finding</h3>
+        <form action="{% url 'Safety:reorder_list' %}">
+            <button type="submit" action="{% url 'Safety:reorder_list' %}">&#x25BC</button>
+        </form>
+        <h3 class="locationheader">Location</h3>
+        <h3 class="submitterheader">Submitter</h3>
+    </div>
+    {% for report in reports %}
+        <div>
+            <div class="Listed-Report">
+                <h3 class="report-title"><a href="{% url 'Safety:report-details' report.id %}">{{ report.title }}</a> </h3>
+                <p class="report-location"> {{ report.location }}</p>
+                <p class="author"><a href="{% url 'users:profile' report.user.username %}">{{ report.user.username }}</a></p>
+                <p class="report-paragraph">{{ report.description }}</p>
+                <p class="posted-date">{{ report.posted_date }}<a href="#"> Comments {{ report.comment }}; Likes {{ report.like }};</a></p>
+            </div> <!--Listed Report-->
+        {% if request.session.username == 'admin' %}
+                <div>
+                    <form id="post-tools" action="{% url 'Safety:delete_report' report.id %}" method="POST">
+                        {% csrf_token %}
+                            <input type="submit" data-report-id="{{ report.id }}" class="delete-post" value="Delete Post" id="delete-post">
+                    </form>
+                </div>
+        {% endif %}
+        </div>
+    {% empty %}
+        <p class="report-title">No Reports have been submitted at this time</p>
+    {% endfor %}
+
+</div>
+{% endblock %}

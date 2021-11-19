@@ -1,0 +1,27 @@
+{% extends "Safety/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="welcome-container">
+        <h2 class="welcome">Welcome</h2>
+        <p class="message">To gain full access to the site, submit reports as well as research statistics we ask you to log in or join below.</p>
+    </div>
+    <div id="loginBoxHeader"> <!--Login Box container-->
+        <h2 id="loginTitle">Login</h2>
+        <div id="error"></div>
+        <form id="Login-box" action="{% url "users:login" %}" method="POST"> <!--Username and sign-out box-->
+            {% csrf_token %}
+            <label for="email-b"></label><input type="text" id="email-b" class="noLog_field" placeholder="Username" name="username" required>
+            <label for="password-b"></label><input type="password" id="password-b" class="noLog_field" placeholder="Password" name="pw">
+            <input type="submit" id="Log-Form-Submit" Value="Login">
+            <a id="forgotPassword" href ="#">Forgot Password</a>
+        </form><!--Username and sign-out box-->
+    </div> <!--Login Box container-->
+    <form id="Signup-box" action="{% url 'users:signup' %}" method="get"> <!--Sign up box-->
+        <h2>Sign Up</h2>
+        <input id="Sign-up-Button" type="submit" Value="Signup">
+    </form><!--Sign up box-->
+{% endblock %}
+{% block sidebar %}
+    {% include "actions/action/feed.html" %}
+{% endblock %}
