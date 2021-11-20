@@ -464,6 +464,28 @@ input#search-button:hover{
     .profile {
         max-width: 100%
     }
+    .divHeight{
+        height: 900px;
+    }
+
+    select#rolebox{
+        float: left;
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+    div#SignupContent{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1em 2em;
+        border: solid 1px #ccc;
+        border-radius: 6px;
+        min-width: 200px;
+        max-width: 900px;
+        height: 900px;
+    }
 /*Non mobile Applications*/
 @media all and (min-width:376px) {
     html, body{

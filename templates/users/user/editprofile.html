@@ -6,17 +6,17 @@
         <h3>Edit Profile</h3>
         <form id="Report-Form" class="add_comment" action="{% url 'users:edit-profile-submit' user.username %}" method="post"> <!--Form to collect data-->
             {% csrf_token %}
-            <label id="formTitleLab" for="ftitle" class="col25">Username: {{ user.username }}</label>
+            <label id="formTitleLab" for="ftitle" class="col75">Username: {{ user.username }}</label>
             <label for="firstNameField" class="col75">First Name:</label>
                 <input  type="text" id="firstNameField" value="{{ user.first_name }}" name="firstname">
             <label for="lastNameField" class="col75">Last Name:</label>
                 <input  type="text" id="lastNameField" value="{{ user.last_name }}" name="lastname">
             <label for="emailField" class="col75">Email:</label>
-                <input  type="email" id="emailField" value="{{ user.email }}" name="email">
+                <input  type="email" id="emailField" value="{{ user.email }}" name="email" class="textbox">
             <label for="passwordField" class="col75">Password:</label>
-                <input  type="password" id="passwordField" name="password">
+                <input  type="password" id="passwordField" name="password" class="textbox">
             <label for="retypePasswordField" class="col75">Retype Password:</label>
-                <input  type="password" id="retypePasswordField" name="retypePassword">
+                <input  type="password" id="retypePasswordField" name="retypePassword" class="textbox">
             {% if request.session.role == 'admin' %}
                 <h4>Administrator Role Change</h4>
                 <label id="roleForm">Current Role: {{ user.details.role }}</label>
