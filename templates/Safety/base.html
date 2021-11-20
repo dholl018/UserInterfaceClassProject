@@ -24,6 +24,10 @@
                   <form id="user-login">
                     <p>Welcome <stong>{{ request.session.username }}</stong> | <a href="{% url 'users:logout' %}">Log out</a> </p>
                   </form>
+               {% else %}
+                   <form id="user-login">
+                    <p>Welcome Guest please | <a href="{% url 'Safety:home' %}">log in or signup!</a> </p>
+                  </form>
                {% endif %}
     </div>
     <div class="container">
@@ -33,7 +37,9 @@
                     <li class="move-left first-Item"><a href="{% url 'Safety:home_user_logged_in' %}">Home</a></li>
                     <li class="move-left"><a href="{% url 'Safety:about' %}">About</a></li>
                     <li class="move-left"><a href="{% url 'Safety:new_safety_report' %}">New Safety Report</a></li>
+                {% if request.session.username %}
                     <li class="move-left"><a href="{% url 'users:profile' request.session.username %}">My Profile</a></li>
+                {% endif %}
                     <li class="move-left"><a href="{% url 'Safety:safety_report_list' %}">All Reports</a></li>
                     <li class="move-right last-Item">
                         {% block searchBar %}{% endblock searchBar %}
