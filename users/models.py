@@ -11,6 +11,9 @@ class Details(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.CharField(default='regular', max_length=50)
 
+    def __str__(self):
+        return self.user.username
+
     def get_absolute_url(self):
         return reverse('users:profile', args=[self.user.username])
 

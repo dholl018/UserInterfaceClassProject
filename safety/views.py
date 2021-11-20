@@ -75,6 +75,7 @@ def edit_report_submit(request, report_id):
             user=user,
             verb="Edited a Report",
             target=report,
+            targetUsername=report.author,
         )
         messages.add_message(request, messages.INFO, "Report titled: %s has been edited" % report.title)
         return render(request,
@@ -99,6 +100,7 @@ def delete_report(request, report_id):
         user=user,
         verb="Deleted a report",
         target=report,
+        targetUsername=report.author,
     )
     action.save()
     report.delete()
@@ -147,6 +149,7 @@ def add_report(request):
             user=user,
             verb="Created a new Report.",
             target=sr,
+            targetUsername=author,
         )
         action.save()
         messages.add_message(request, messages.SUCCESS, "You have successfully added item: %s" % sr.title)
@@ -175,7 +178,7 @@ def home_user_logged_in(request):
     else:
         username = request.session['username']
         user1 = get_object_or_404(User, username=username)
-        actions = Action.objects.filter(user=user1)
+        actions = Action.objects.filter(targetUsername=user1.username)
     return render(request,
                   "Safety/home_user_Logged_In.html",
                   {"actions": actions}
@@ -256,6 +259,7 @@ def post_comment(request, report_id):
             user=user,
             verb="Commented on a post",
             target=cs,
+            targetUsername=report.author,
         )
         action.save()
         return render(request,

@@ -55,6 +55,7 @@ def edit_profile_subit(request, username):
                     user=actor,
                     verb="Has changed a user role",
                     target=user,
+                    targetUsername=user.username,
                 )
                 action.save()
         # Redirect to detail view
@@ -80,6 +81,7 @@ def signup(request):
             user=user,
             verb="Has joined the site",
             target=user,
+            targetUsername=username,
         )
         action.save()
         messages.add_message(request, messages.SUCCESS, "You have successfully registered: %s" % user.username)

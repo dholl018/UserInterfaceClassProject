@@ -14,4 +14,5 @@ class Action(models.Model):
     target_id = models.PositiveIntegerField(blank=True, null=True)
     target = GenericForeignKey('target_ct', 'target_id')
     created = models.DateTimeField(auto_now_add=True)
+    targetUsername = models.CharField(max_length=100, blank=True, null=True)
 

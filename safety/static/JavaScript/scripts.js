@@ -5,7 +5,7 @@ $(document).ready(function (){
             $('#postedComment').addClass('hide')
     })
 
-    $('#username-text').keyup(function (){
+    $('#username-text').keypress(function (){
         CheckUserName();
     })
 
