@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -178,7 +179,7 @@ def home_user_logged_in(request):
     else:
         username = request.session['username']
         user1 = get_object_or_404(User, username=username)
-        actions = Action.objects.filter(targetUsername=user1.username).filter(user=user1)
+        actions = Action.objects.filter(Q(targetUsername=user1.username) | Q(user=user1))
     return render(request,
                   "Safety/home_user_Logged_In.html",
                   {"actions": actions}
